@@ -2,7 +2,12 @@
  * TypeScript example: Using DAN with TypeScript
  */
 
-import {decode, encode, type DanObject, type DanTableRow} from "@marcuwynu23/dan";
+import {
+  decode,
+  encode,
+  type DanObject,
+  type DanTableRow,
+} from "@marcuwynu23/dan";
 
 // Example 1: Decode with type inference
 const danText = `
@@ -104,5 +109,7 @@ const original: DanObject = {name: "Test", value: 42, active: true};
 const encoded: string = encode(original);
 const decoded: DanObject = decode(encoded);
 
-console.log("\nRound-trip test:", JSON.stringify(decoded) === JSON.stringify(original));
-
+console.log(
+  "\nRound-trip test:",
+  JSON.stringify(decoded) === JSON.stringify(original)
+);

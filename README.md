@@ -1,23 +1,47 @@
-# Data Advanced Notation (DAN)
+<div align="center">
 
-**DAN** (Data Advanced Notation) is a **human-readable, structured data format** designed to combine the best features of JSON, YAML, CSV, and TOON. It supports **nested blocks, arrays, tables, comments, and type inference**, making it ideal for configuration files, datasets, and structured human-readable data.
+# 📊 Data Advanced Notation (DAN)
 
-This library provides a fast, reliable parser and encoder for the DAN format.
+**A human-readable, structured data format** that combines the best features of JSON, YAML, CSV, and TOON.
+
+[![npm version](https://img.shields.io/npm/v/@marcuwynu23/dan?style=flat-square)](https://www.npmjs.com/package/@marcuwynu23/dan)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-ESM-green?style=flat-square&logo=node.js)](https://nodejs.org/)
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples)
+
+</div>
 
 ---
 
-## Installation
+## ✨ Why DAN?
+
+**DAN** (Data Advanced Notation) is designed for developers who want:
+
+- 🎯 **Human-readable** syntax with minimal punctuation
+- 📋 **Native table support** for structured data
+- 💬 **Comments** anywhere (`#` or `//`)
+- 🔍 **Type inference** - no explicit type declarations needed
+- ⚡ **Fast parsing** with single-pass algorithm
+- 🎨 **Beautiful syntax** that's easy to read and write
+
+Perfect for **configuration files**, **datasets**, **structured data**, and any scenario where JSON/YAML/CSV fall short.
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
 npm install @marcuwynu23/dan
 ```
 
----
-
-## Quick Start
+### Basic Usage
 
 ```javascript
-import {decode, encode} from "@marcuwynu23/dan";
+import { decode, encode } from "@marcuwynu23/dan";
 
 // Parse DAN text to JavaScript object
 const danText = `
@@ -51,19 +75,49 @@ console.log(danOutput);
 
 ---
 
-## TypeScript Support
+## 📚 Table of Contents
 
-This library includes full TypeScript support with type definitions. TypeScript users get:
+- [Features](#-features)
+- [TypeScript Support](#-typescript-support)
+- [API Reference](#-api-reference)
+- [Syntax Guide](#-syntax-guide)
+- [Examples](#-examples)
+- [Comparison with Other Formats](#-comparison-with-other-formats)
+- [Use Cases](#-use-cases)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
 
-- ✅ Full type definitions for `decode` and `encode` functions
-- ✅ Type-safe access to parsed data
-- ✅ Exported types: `DanObject`, `DanValue`, `DanTableRow`
-- ✅ IntelliSense and autocomplete support
+---
+
+## ✨ Features
+
+| Feature               | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| 🎨 **Human-readable** | Minimal syntax, easy for humans to understand    |
+| 📦 **Nested blocks**  | Organize data hierarchically with `{}`           |
+| 📋 **Arrays**         | Simple list syntax with `[]`                     |
+| 📊 **Native tables**  | Built-in table support with column headers       |
+| 💬 **Comments**       | Inline and block comments using `#` or `//`      |
+| 🔍 **Type inference** | Automatically detects numbers, booleans, strings |
+| ⚡ **Fast parsing**   | Optimized single-pass parser for performance     |
+| 📝 **Buffer support** | Parse directly from Node.js Buffers              |
+| 🎯 **TypeScript**     | Full type definitions included                   |
+
+---
+
+## 📘 TypeScript Support
+
+This library includes **full TypeScript support** with comprehensive type definitions.
 
 ### TypeScript Example
 
 ```typescript
-import {decode, encode, type DanObject, type DanTableRow} from "@marcuwynu23/dan";
+import {
+  decode,
+  encode,
+  type DanObject,
+  type DanTableRow,
+} from "@marcuwynu23/dan";
 
 // Decode with type inference
 const obj: DanObject = decode(`
@@ -86,7 +140,7 @@ interface Config {
 }
 
 const config: Config = {
-  user: {name: "Jane", email: "jane@example.com"},
+  user: { name: "Jane", email: "jane@example.com" },
   roles: ["admin", "user"],
 };
 
@@ -101,7 +155,7 @@ const dan: string = encode(config as DanObject);
 
 ---
 
-## API
+## 📖 API Reference
 
 ### `decode(text: string | Buffer): DanObject`
 
@@ -160,7 +214,7 @@ Encodes a JavaScript object to DAN format string.
 **Example:**
 
 ```javascript
-const dan = encode({name: "John", age: 30});
+const dan = encode({ name: "John", age: 30 });
 // name: "John"
 // age: 30
 ```
@@ -168,24 +222,62 @@ const dan = encode({name: "John", age: 30});
 **TypeScript:**
 
 ```typescript
-const dan: string = encode({name: "John", age: 30} as DanObject);
+const dan: string = encode({ name: "John", age: 30 } as DanObject);
 ```
 
 ---
 
-## Features
+## 📝 Syntax Guide
 
-- **Human-readable syntax** with minimal punctuation
-- **Nested blocks** using `{}` for clear structure
-- **Arrays** using `[ ]`
-- **Tables** with column headers and typed values
-- **Inline and block comments** using `#` or `//`
-- **Type inference** for numbers, booleans, strings, arrays
-- **Fast, single-pass parsing** for large datasets
+### Blocks
+
+Organize data hierarchically with nested blocks:
+
+```dan
+context {
+  key: value
+  nestedBlock {
+    key: value
+  }
+}
+```
+
+### Arrays
+
+Store lists of values:
+
+```dan
+friends: [ana, luis, sam]
+numbers: [1, 2, 3, 4, 5]
+mixed: [hello, 42, true, "world"]
+```
+
+### Tables
+
+Native table support for structured tabular data:
+
+```dan
+hikes: table(id, name, distanceKm) [
+  1, "Blue Lake Trail", 7.5
+  2, "Ridge Overlook", 9.2
+]
+```
+
+### Comments
+
+Add documentation anywhere:
+
+```dan
+# This is a block comment
+name: John  # Inline comment
+age: 30     // Alternative comment style
+```
 
 ---
 
-## Example DAN File
+## 💡 Examples
+
+### Complete Example
 
 ```dan
 # Context for the hiking trip
@@ -223,56 +315,54 @@ animals: table(type, name, age, vaccinated) [
 games: [chess, "board games", puzzles, "escape room", sudoku]  // fun activities
 ```
 
----
-
-## Syntax Overview
-
-### Blocks
+### Configuration File Example
 
 ```dan
-context {
-  key: value
-  nestedBlock {
-    key: value
+# Application configuration
+app {
+  name: "My Application"
+  version: 1.0.0
+  environment: production
+
+  # Server settings
+  server {
+    host: localhost
+    port: 3000
+    ssl: false
+  }
+
+  # Database configuration
+  database {
+    type: postgresql
+    host: db.example.com
+    port: 5432
+    name: myapp
   }
 }
-```
 
-### Arrays
+# Feature flags
+features {
+  authentication: true
+  analytics: false
+  logging: true
+}
 
-```dan
-friends: [ana, luis, sam]
-```
+# User roles
+roles: [admin, user, guest]
 
-### Tables
-
-```dan
-hikes: table(id, name, distanceKm) [
-  1, "Blue Lake Trail", 7.5
-  2, "Ridge Overlook", 9.2
+# API endpoints
+endpoints: table(method, path, handler, auth) [
+  GET, "/api/users", getUsers, true
+  POST, "/api/users", createUser, true
+  GET, "/api/public", getPublic, false
 ]
 ```
 
-### Comments
-
-```dan
-# This is a comment
-// This is also a comment
-```
+Check out more examples in the [`examples/`](./examples/) directory!
 
 ---
 
-## Advantages of DAN
-
-- **Readable**: Minimal syntax, easy for humans to understand
-- **Structured**: Supports tables, nested objects, and arrays
-- **Typed**: Automatically infers numbers, booleans, strings
-- **Flexible**: Comments allowed anywhere in the file
-- **Fast Parsing**: Optimized single-pass parsers for performance
-
----
-
-## Comparison with Other Data Formats
+## ⚖️ Comparison with Other Formats
 
 DAN combines the best features of multiple data formats. Here's how it compares:
 
@@ -294,7 +384,8 @@ DAN combines the best features of multiple data formats. Here's how it compares:
 
 The same data structure represented in different formats:
 
-#### DAN
+<details>
+<summary><b>DAN</b> - Clean and readable</summary>
 
 ```dan
 # User configuration
@@ -313,7 +404,10 @@ roles: table(id, name, permissions) [
 ]
 ```
 
-#### JSON
+</details>
+
+<details>
+<summary><b>JSON</b> - Verbose, no comments</summary>
 
 ```json
 {
@@ -324,21 +418,24 @@ roles: table(id, name, permissions) [
     "tags": ["developer", "javascript", "nodejs"]
   },
   "roles": [
-    {"id": 1, "name": "admin", "permissions": ["read", "write", "delete"]},
-    {"id": 2, "name": "user", "permissions": ["read"]},
-    {"id": 3, "name": "guest", "permissions": ["read"]}
+    { "id": 1, "name": "admin", "permissions": ["read", "write", "delete"] },
+    { "id": 2, "name": "user", "permissions": ["read"] },
+    { "id": 3, "name": "guest", "permissions": ["read"] }
   ]
 }
 ```
 
-**Issues with JSON:**
+**Issues:**
 
 - ❌ No comments
 - ❌ Requires quotes for all strings
 - ❌ More verbose syntax
 - ❌ Tables require verbose object arrays
 
-#### YAML
+</details>
+
+<details>
+<summary><b>YAML</b> - Indentation-sensitive</summary>
 
 ```yaml
 # User configuration
@@ -369,115 +466,14 @@ roles:
       - read
 ```
 
-**Issues with YAML:**
+**Issues:**
 
 - ⚠️ Indentation-sensitive (can be error-prone)
 - ⚠️ Tables require verbose nested structures
 - ⚠️ More verbose for tabular data
 - ⚠️ Complex syntax for simple values
 
-#### TOML
-
-```toml
-# User configuration
-[user]
-name = "John"
-age = 30
-active = true
-tags = ["developer", "javascript", "nodejs"]
-
-# User roles table
-[[roles]]
-id = 1
-name = "admin"
-permissions = ["read", "write", "delete"]
-
-[[roles]]
-id = 2
-name = "user"
-permissions = ["read"]
-
-[[roles]]
-id = 3
-name = "guest"
-permissions = ["read"]
-```
-
-**Issues with TOML:**
-
-- ⚠️ Tables require array of tables syntax `[[table]]`
-- ⚠️ More verbose for tabular data
-- ⚠️ Requires quotes for strings in some contexts
-
-#### CSV
-
-```csv
-user.name,user.age,user.active,user.tags
-John,30,true,"developer,javascript,nodejs"
-
-roles.id,roles.name,roles.permissions
-1,admin,"read,write,delete"
-2,user,read
-3,guest,read
-```
-
-**Issues with CSV:**
-
-- ❌ No comments
-- ❌ No nested structures
-- ❌ Poor support for complex data types
-- ❌ Escaping issues with commas and quotes
-- ❌ No type inference
-
-#### XML
-
-```xml
-<!-- User configuration -->
-<config>
-  <user>
-    <name>John</name>
-    <age>30</age>
-    <active>true</active>
-    <tags>
-      <tag>developer</tag>
-      <tag>javascript</tag>
-      <tag>nodejs</tag>
-    </tags>
-  </user>
-  <roles>
-    <role>
-      <id>1</id>
-      <name>admin</name>
-      <permissions>
-        <permission>read</permission>
-        <permission>write</permission>
-        <permission>delete</permission>
-      </permissions>
-    </role>
-    <role>
-      <id>2</id>
-      <name>user</name>
-      <permissions>
-        <permission>read</permission>
-      </permissions>
-    </role>
-    <role>
-      <id>3</id>
-      <name>guest</name>
-      <permissions>
-        <permission>read</permission>
-      </permissions>
-    </role>
-  </roles>
-</config>
-```
-
-**Issues with XML:**
-
-- ❌ Very verbose
-- ❌ Not human-friendly
-- ❌ Closing tags add significant overhead
-- ❌ Poor readability for configuration
+</details>
 
 ### Why Choose DAN?
 
@@ -499,25 +495,69 @@ roles.id,roles.name,roles.permissions
 
 ---
 
-## Use Cases
+## 🎯 Use Cases
 
-- Configuration files for applications or services
-- Human-readable datasets for analytics
-- Storing structured experiment results
-- Any case where JSON/YAML/CSV are too limited
+DAN is perfect for:
+
+- 📝 **Configuration files** for applications or services
+- 📊 **Human-readable datasets** for analytics
+- 🧪 **Structured experiment results**
+- 📋 **Data serialization** with human readability
+- 🗂️ **Documentation** with embedded data
+- 📈 **Tabular data representation**
 
 ---
 
-## File Extension
+## 📄 File Extension
 
-DAN files use the extension:
-
-```
-.filename.dan
-```
-
-Example:
+DAN files use the `.dan` extension:
 
 ```
-hiking_trip.dan
+filename.dan
 ```
+
+Example: `hiking_trip.dan`, `config.dan`, `data.dan`
+
+---
+
+## 📚 Documentation
+
+- **[FEATURES.md](./FEATURES.md)** - Comprehensive feature documentation
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Guidelines for contributing
+- **[CHANGELOG.md](./CHANGELOG.md)** - Version history and changes
+- **[Examples](./examples/)** - Code examples and use cases
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details on:
+
+- Code of conduct
+- Development setup
+- Pull request process
+- Coding standards
+
+See our [Security Policy](./.github/SECURITY.md) for reporting vulnerabilities.
+
+---
+
+## 📜 License
+
+This project is licensed under the **ISC License** - see the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+DAN is inspired by the best features of JSON, YAML, CSV, and TOON, combining them into a single, powerful format.
+
+---
+
+<div align="center">
+
+**Made with ❤️ for developers who love clean, readable data formats**
+
+[Report Bug](https://github.com/marcuwynu23/dan/issues) • [Request Feature](https://github.com/marcuwynu23/dan/issues) • [Documentation](./FEATURES.md)
+
+</div>
