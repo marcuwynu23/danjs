@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "A parser and encoder for DAN (Data Advanced Notation) format",
   "main": "index.js",
+  "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "type": "module",
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
   },
   "files": [
     "index.js",
+    "index.d.ts",
     "lib.js",
     "README.md"
   ],
@@ -24,9 +29,13 @@
     "parser",
     "data-format",
     "configuration",
-    "structured-data"
+    "structured-data",
+    "typescript",
+    "types"
   ],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "dependencies": {
+    "@marcuwynu23/dan": "^1.0.0"
+  }
 }

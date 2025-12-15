@@ -51,34 +51,106 @@ console.log(danOutput);
 
 ---
 
+## TypeScript Support
+
+This library includes full TypeScript support with type definitions. TypeScript users get:
+
+- ✅ Full type definitions for `decode` and `encode` functions
+- ✅ Type-safe access to parsed data
+- ✅ Exported types: `DanObject`, `DanValue`, `DanTableRow`
+- ✅ IntelliSense and autocomplete support
+
+### TypeScript Example
+
+```typescript
+import {decode, encode, type DanObject, type DanTableRow} from "@marcuwynu23/dan";
+
+// Decode with type inference
+const obj: DanObject = decode(`
+name: John
+age: 30
+active: true
+`);
+
+// Type-safe access
+const name: string = obj.name as string;
+const age: number = obj.age as number;
+
+// Encode with type safety
+interface Config {
+  user: {
+    name: string;
+    email: string;
+  };
+  roles: string[];
+}
+
+const config: Config = {
+  user: {name: "Jane", email: "jane@example.com"},
+  roles: ["admin", "user"],
+};
+
+const dan: string = encode(config as DanObject);
+```
+
+### Available Types
+
+- `DanObject` - Represents a parsed DAN object
+- `DanValue` - Union type for all possible DAN values
+- `DanTableRow` - Represents a row in a DAN table
+
+---
+
 ## API
 
-### `decode(text: string): object`
+### `decode(text: string | Buffer): DanObject`
 
-Parses a DAN format string and returns a JavaScript object.
+Parses a DAN format string or Buffer and returns a JavaScript object.
 
 **Parameters:**
 
-- `text` (string): The DAN format text to parse
+- `text` (string | Buffer): The DAN format text to parse. Can be a string or a Node.js Buffer (e.g., from `fs.readFileSync`)
 
 **Returns:**
 
-- `object`: The parsed JavaScript object
+- `DanObject`: The parsed JavaScript object
 
 **Example:**
 
 ```javascript
+// With string
 const obj = decode("name: John\nage: 30");
 // { name: 'John', age: 30 }
+
+// With Buffer (from fs.readFileSync)
+import fs from "fs";
+const buffer = fs.readFileSync("data.dan");
+const obj = decode(buffer); // Automatically converts Buffer to string
+
+// Empty file handling (returns empty object, no error)
+const emptyBuffer = fs.readFileSync("empty.dan");
+const emptyObj = decode(emptyBuffer); // Returns {} for empty files
+// {}
 ```
 
-### `encode(obj: object, indent?: number): string`
+**TypeScript:**
+
+```typescript
+const obj: DanObject = decode("name: John\nage: 30");
+
+// Or with Buffer
+import fs from "fs";
+const buffer = fs.readFileSync("data.dan");
+const obj: DanObject = decode(buffer);
+```
+
+### `encode(obj: DanObject, indent?: number): string`
 
 Encodes a JavaScript object to DAN format string.
 
 **Parameters:**
 
-- `obj` (object): The JavaScript object to encode
+- `obj` (DanObject): The JavaScript object to encode
 - `indent` (number, optional): Starting indentation level (default: 0)
 
 **Returns:**
@@ -91,6 +163,12 @@ Encodes a JavaScript object to DAN format string.
 const dan = encode({name: "John", age: 30});
 // name: "John"
 // age: 30
+```
+
+**TypeScript:**
+
+```typescript
+const dan: string = encode({name: "John", age: 30} as DanObject);
 ```
 
 ---

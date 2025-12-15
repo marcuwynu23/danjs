@@ -1,5 +1,17 @@
 // DAN (Data Advanced Notation) Parser and Encoder
 export function decode(text) {
+  // Handle Buffer inputs (from fs.readFileSync)
+  if (Buffer.isBuffer(text)) {
+    text = text.toString('utf-8');
+  }
+  // Ensure text is a string
+  if (typeof text !== 'string') {
+    throw new TypeError(`Expected string or Buffer, got ${typeof text}`);
+  }
+  // Handle empty input - return empty object
+  if (!text || text.trim().length === 0) {
+    return {};
+  }
   const lines = text.split(/\r?\n/);
   const stack = [{obj: {}, type: "root"}];
   let currentTable = null;
