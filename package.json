@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A parser and encoder for DAN (Data Advanced Notation) format",
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "exports": {
     ".": "./index.js"
