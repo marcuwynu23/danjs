@@ -525,6 +525,7 @@ Example: `hiking_trip.dan`, `config.dan`, `data.dan`
 - **[FEATURES.md](./FEATURES.md)** - Comprehensive feature documentation
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Guidelines for contributing
 - **[CHANGELOG.md](./CHANGELOG.md)** - Version history and changes
+- **[SECURITY.md](./SECURITY.md)** - How to report vulnerabilities responsibly
 - **[Examples](./examples/)** - Code examples and use cases
 
 ---
@@ -533,12 +534,12 @@ Example: `hiking_trip.dan`, `config.dan`, `data.dan`
 
 Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details on:
 
-- Code of conduct
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
 - Development setup
 - Pull request process
 - Coding standards
 
-See our [Security Policy](./.github/SECURITY.md) for reporting vulnerabilities.
+See our [Security Policy](./SECURITY.md) for reporting vulnerabilities. You can also support maintenance via [PayPal](https://paypal.me/wynumarcu23) (see the **Sponsor** / Funding button on the repository).
 
 ---
 

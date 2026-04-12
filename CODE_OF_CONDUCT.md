@@ -58,9 +58,10 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-[INSERT CONTACT METHOD].
-All complaints will be reviewed and investigated promptly and fairly.
+reported to the community leaders responsible for enforcement by opening an
+issue in this repository (when appropriate) or by contacting the maintainers
+via GitHub at [@marcuwynu23](https://github.com/marcuwynu23). All complaints
+will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
@@ -101,7 +102,7 @@ Violating these terms may lead to a permanent ban.
 
 ### 4. Permanent Ban
 **Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior,  harassment of an
+standards, including sustained inappropriate behavior, harassment of an
 individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within
@@ -120,4 +121,3 @@ enforcement ladder](https://github.com/mozilla/diversity).
 
 For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
-

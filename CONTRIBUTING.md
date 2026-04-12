@@ -4,7 +4,9 @@ Thank you for your interest in contributing to DAN (Data Advanced Notation)! Thi
 
 ## Code of Conduct
 
-By participating in this project, you agree to maintain a respectful and inclusive environment for all contributors.
+This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). By participating, you agree to uphold it. Unacceptable behavior may be reported as described in that file.
+
+For **security vulnerabilities**, follow [SECURITY.md](SECURITY.md) (use private GitHub advisories, not public issues).
 
 ## How to Contribute
 
