@@ -1,6 +1,6 @@
 {
   "name": "@marcuwynu23/danjs",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "danjs — JavaScript parser and encoder for DAN (Data Advanced Notation)",
   "main": "index.js",
   "types": "index.d.ts",
