@@ -1,7 +1,7 @@
 {
-  "name": "@marcuwynu23/dan",
+  "name": "@marcuwynu23/danjs",
   "version": "1.0.2",
-  "description": "A parser and encoder for DAN (Data Advanced Notation) format",
+  "description": "danjs — JavaScript parser and encoder for DAN (Data Advanced Notation)",
   "main": "index.js",
   "types": "index.d.ts",
   "publishConfig": {
@@ -26,6 +26,7 @@
   },
   "keywords": [
     "dan",
+    "danjs",
     "parser",
     "data-format",
     "configuration",
@@ -34,8 +35,5 @@
     "types"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@marcuwynu23/dan": "^1.0.0"
-  }
+  "license": "ISC"
 }

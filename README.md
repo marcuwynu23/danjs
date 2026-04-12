@@ -1,47 +1,49 @@
 <div align="center">
 
-# 📊 Data Advanced Notation (DAN)
+# Data Advanced Notation (DAN)
+
+**npm:** [`@marcuwynu23/danjs`](https://www.npmjs.com/package/@marcuwynu23/danjs) (danjs)
 
 **A human-readable, structured data format** that combines the best features of JSON, YAML, CSV, and TOON.
 
-[![npm version](https://img.shields.io/npm/v/@marcuwynu23/dan?style=flat-square)](https://www.npmjs.com/package/@marcuwynu23/dan)
+[![npm version](https://img.shields.io/npm/v/@marcuwynu23/danjs?style=flat-square)](https://www.npmjs.com/package/@marcuwynu23/danjs)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-ESM-green?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-ESM-green?style=flat-square)](https://nodejs.org/)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples)
+[Features](#features) • [Quick Start](#quick-start) • [Documentation](#documentation) • [Examples](#examples)
 
 </div>
 
 ---
 
-## ✨ Why DAN?
+## Why DAN?
 
 **DAN** (Data Advanced Notation) is designed for developers who want:
 
-- 🎯 **Human-readable** syntax with minimal punctuation
-- 📋 **Native table support** for structured data
-- 💬 **Comments** anywhere (`#` or `//`)
-- 🔍 **Type inference** - no explicit type declarations needed
-- ⚡ **Fast parsing** with single-pass algorithm
-- 🎨 **Beautiful syntax** that's easy to read and write
+- **Human-readable** syntax with minimal punctuation
+- **Native table support** for structured data
+- **Comments** anywhere (`#` or `//`)
+- **Type inference** - no explicit type declarations needed
+- **Fast parsing** with single-pass algorithm
+- **Readable syntax** that is easy to read and write
 
 Perfect for **configuration files**, **datasets**, **structured data**, and any scenario where JSON/YAML/CSV fall short.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
 ```bash
-npm install @marcuwynu23/dan
+npm install @marcuwynu23/danjs
 ```
 
 ### Basic Usage
 
 ```javascript
-import { decode, encode } from "@marcuwynu23/dan";
+import { decode, encode } from "@marcuwynu23/danjs";
 
 // Parse DAN text to JavaScript object
 const danText = `
@@ -75,37 +77,37 @@ console.log(danOutput);
 
 ---
 
-## 📚 Table of Contents
+## Contents
 
-- [Features](#-features)
-- [TypeScript Support](#-typescript-support)
-- [API Reference](#-api-reference)
-- [Syntax Guide](#-syntax-guide)
-- [Examples](#-examples)
-- [Comparison with Other Formats](#-comparison-with-other-formats)
-- [Use Cases](#-use-cases)
-- [Documentation](#-documentation)
-- [Contributing](#-contributing)
+- [Features](#features)
+- [TypeScript Support](#typescript-support)
+- [API Reference](#api-reference)
+- [Syntax Guide](#syntax-guide)
+- [Examples](#examples)
+- [Comparison with Other Formats](#comparison-with-other-formats)
+- [Use Cases](#use-cases)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature               | Description                                      |
 | --------------------- | ------------------------------------------------ |
-| 🎨 **Human-readable** | Minimal syntax, easy for humans to understand    |
-| 📦 **Nested blocks**  | Organize data hierarchically with `{}`           |
-| 📋 **Arrays**         | Simple list syntax with `[]`                     |
-| 📊 **Native tables**  | Built-in table support with column headers       |
-| 💬 **Comments**       | Inline and block comments using `#` or `//`      |
-| 🔍 **Type inference** | Automatically detects numbers, booleans, strings |
-| ⚡ **Fast parsing**   | Optimized single-pass parser for performance     |
-| 📝 **Buffer support** | Parse directly from Node.js Buffers              |
-| 🎯 **TypeScript**     | Full type definitions included                   |
+| **Human-readable**    | Minimal syntax, easy for humans to understand    |
+| **Nested blocks**     | Organize data hierarchically with `{}`           |
+| **Arrays**            | Simple list syntax with `[]`                     |
+| **Native tables**     | Built-in table support with column headers       |
+| **Comments**          | Inline and block comments using `#` or `//`      |
+| **Type inference**    | Automatically detects numbers, booleans, strings |
+| **Fast parsing**      | Optimized single-pass parser for performance     |
+| **Buffer support**    | Parse directly from Node.js Buffers              |
+| **TypeScript**        | Full type definitions included                   |
 
 ---
 
-## 📘 TypeScript Support
+## TypeScript Support
 
 This library includes **full TypeScript support** with comprehensive type definitions.
 
@@ -117,7 +119,7 @@ import {
   encode,
   type DanObject,
   type DanTableRow,
-} from "@marcuwynu23/dan";
+} from "@marcuwynu23/danjs";
 
 // Decode with type inference
 const obj: DanObject = decode(`
@@ -155,7 +157,7 @@ const dan: string = encode(config as DanObject);
 
 ---
 
-## 📖 API Reference
+## API Reference
 
 ### `decode(text: string | Buffer): DanObject`
 
@@ -227,7 +229,7 @@ const dan: string = encode({ name: "John", age: 30 } as DanObject);
 
 ---
 
-## 📝 Syntax Guide
+## Syntax Guide
 
 ### Blocks
 
@@ -275,7 +277,7 @@ age: 30     // Alternative comment style
 
 ---
 
-## 💡 Examples
+## Examples
 
 ### Complete Example
 
@@ -362,7 +364,7 @@ Check out more examples in the [`examples/`](./examples/) directory!
 
 ---
 
-## ⚖️ Comparison with Other Formats
+## Comparison with Other Formats
 
 DAN combines the best features of multiple data formats. Here's how it compares:
 
@@ -370,15 +372,15 @@ DAN combines the best features of multiple data formats. Here's how it compares:
 
 | Feature             | DAN             | JSON | YAML   | TOML   | CSV | XML           | INI            |
 | ------------------- | --------------- | ---- | ------ | ------ | --- | ------------- | -------------- |
-| **Comments**        | ✅ `#` and `//` | ❌   | ✅ `#` | ✅ `#` | ❌  | ✅ `<!-- -->` | ✅ `#` and `;` |
-| **Type Inference**  | ✅              | ❌   | ✅     | ✅     | ❌  | ❌            | ❌             |
-| **Nested Objects**  | ✅              | ✅   | ✅     | ✅     | ❌  | ✅            | ❌             |
-| **Arrays**          | ✅              | ✅   | ✅     | ✅     | ❌  | ✅            | ❌             |
-| **Tables**          | ✅ Native       | ❌   | ❌     | ❌     | ✅  | ❌            | ❌             |
-| **Minimal Syntax**  | ✅              | ❌   | ⚠️     | ⚠️     | ✅  | ❌            | ✅             |
-| **Human Readable**  | ✅              | ⚠️   | ✅     | ✅     | ⚠️  | ❌            | ✅             |
-| **Quotes Optional** | ✅              | ❌   | ✅     | ✅     | ❌  | ❌            | ✅             |
-| **Trailing Commas** | ✅              | ❌   | ✅     | ✅     | ❌  | N/A           | N/A            |
+| **Comments**        | Yes (`#` and `//`) | No   | Yes (`#`) | Yes (`#`) | No  | Yes (`<!-- -->`) | Yes (`#` and `;`) |
+| **Type Inference**  | Yes                | No   | Yes       | Yes       | No  | No               | No                |
+| **Nested Objects**  | Yes                | Yes  | Yes       | Yes       | No  | Yes              | No                |
+| **Arrays**          | Yes                | Yes  | Yes       | Yes       | No  | Yes              | No                |
+| **Tables**          | Yes (native)       | No   | No        | No        | Yes | No               | No                |
+| **Minimal Syntax**  | Yes                | No   | Partial   | Partial   | Yes | No               | Yes               |
+| **Human Readable**  | Yes                | Partial | Yes    | Yes       | Partial | No          | Yes               |
+| **Quotes Optional** | Yes                | No   | Yes       | Yes       | No  | No               | Yes               |
+| **Trailing Commas** | Yes                | No   | Yes       | Yes       | No  | N/A              | N/A               |
 
 ### Side-by-Side Examples
 
@@ -427,10 +429,10 @@ roles: table(id, name, permissions) [
 
 **Issues:**
 
-- ❌ No comments
-- ❌ Requires quotes for all strings
-- ❌ More verbose syntax
-- ❌ Tables require verbose object arrays
+- No comments
+- Requires quotes for all strings
+- More verbose syntax
+- Tables require verbose object arrays
 
 </details>
 
@@ -468,10 +470,10 @@ roles:
 
 **Issues:**
 
-- ⚠️ Indentation-sensitive (can be error-prone)
-- ⚠️ Tables require verbose nested structures
-- ⚠️ More verbose for tabular data
-- ⚠️ Complex syntax for simple values
+- Indentation-sensitive (can be error-prone)
+- Tables require verbose nested structures
+- More verbose for tabular data
+- Complex syntax for simple values
 
 </details>
 
@@ -479,36 +481,36 @@ roles:
 
 **Choose DAN when you need:**
 
-- ✅ Tabular data with native table support
-- ✅ Comments for documentation
-- ✅ Minimal, readable syntax
-- ✅ Type inference without explicit typing
-- ✅ Mix of structured and tabular data
-- ✅ Fast parsing performance
+- Tabular data with native table support
+- Comments for documentation
+- Minimal, readable syntax
+- Type inference without explicit typing
+- Mix of structured and tabular data
+- Fast parsing performance
 
 **Consider alternatives when:**
 
-- ⚠️ You need maximum compatibility (use JSON)
-- ⚠️ You need strict schema validation (use JSON Schema + JSON)
-- ⚠️ You need industry-standard format (use YAML/TOML)
-- ⚠️ You only need simple key-value pairs (use INI)
+- You need maximum compatibility (use JSON)
+- You need strict schema validation (use JSON Schema + JSON)
+- You need industry-standard format (use YAML/TOML)
+- You only need simple key-value pairs (use INI)
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 DAN is perfect for:
 
-- 📝 **Configuration files** for applications or services
-- 📊 **Human-readable datasets** for analytics
-- 🧪 **Structured experiment results**
-- 📋 **Data serialization** with human readability
-- 🗂️ **Documentation** with embedded data
-- 📈 **Tabular data representation**
+- **Configuration files** for applications or services
+- **Human-readable datasets** for analytics
+- **Structured experiment results**
+- **Data serialization** with human readability
+- **Documentation** with embedded data
+- **Tabular data representation**
 
 ---
 
-## 📄 File Extension
+## File Extension
 
 DAN files use the `.dan` extension:
 
@@ -520,7 +522,7 @@ Example: `hiking_trip.dan`, `config.dan`, `data.dan`
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - **[FEATURES.md](./FEATURES.md)** - Comprehensive feature documentation
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Guidelines for contributing
@@ -530,7 +532,7 @@ Example: `hiking_trip.dan`, `config.dan`, `data.dan`
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details on:
 
@@ -543,13 +545,13 @@ See our [Security Policy](./SECURITY.md) for reporting vulnerabilities. You can 
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **ISC License** - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 DAN is inspired by the best features of JSON, YAML, CSV, and TOON, combining them into a single, powerful format.
 
@@ -557,8 +559,8 @@ DAN is inspired by the best features of JSON, YAML, CSV, and TOON, combining the
 
 <div align="center">
 
-**Made with ❤️ for developers who love clean, readable data formats**
+**Made for developers who love clean, readable data formats**
 
-[Report Bug](https://github.com/marcuwynu23/dan/issues) • [Request Feature](https://github.com/marcuwynu23/dan/issues) • [Documentation](./FEATURES.md)
+[Report Bug](https://github.com/marcuwynu23/danjs/issues) • [Request Feature](https://github.com/marcuwynu23/danjs/issues) • [Documentation](./FEATURES.md)
 
 </div>
